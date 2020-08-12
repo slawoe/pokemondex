@@ -1,22 +1,8 @@
 import React from "react";
+import "./List.css";
 
-function List(props) {
-  return <nav>{props.children}</nav>;
+function List({ children }) {
+  return <nav className="list">{children}</nav>;
 }
 
 export default List;
-
-/* <nav>
-<a href="#">
-  <img></img>
-  <span></span>
-</a>
-<a href="#">
-  <img></img>
-  <span></span>
-</a>
-<a href="#">
-  <img></img>
-  <span></span>
-</a>
-</nav> */
