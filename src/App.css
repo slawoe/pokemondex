@@ -1,0 +1,58 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto 33% auto;
+  grid-template-rows: 10% 80% 10%;
+  justify-items: stretch;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 121, 106, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.header {
+  display: grid;
+  place-items: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 2px;
+  color: white;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px black;
+}
+
+.input {
+  background-color: rgba(15, 34, 34, 0.5);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.7rem;
+  padding: 5px;
+  border: none;
+  box-shadow: 0 1px 1px black;
+  color: white;
+}
+::placeholder {
+  color: white;
+}
+
+.pokeList {
+  background: white;
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border-bottom: 3px solid black;
+  border-top: 3px solid black;
+  padding: 5px 0px;
+}
