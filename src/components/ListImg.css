@@ -1,0 +1,6 @@
+.listImg {
+  padding-left: 15px;
+  max-width: 2.2em;
+  max-height: 2.2em;
+  object-fit: contain;
+}
