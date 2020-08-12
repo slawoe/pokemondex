@@ -4,7 +4,8 @@ import List from "./components/List";
 import ListItem from "./components/ListItem";
 import ListImg from "./components/ListImg";
 import ListItemText from "./components/ListItemText";
-import ListIconsContainer from "./components/ListIcons";
+import ListIcon from "./components/ListIcon";
+import Bulbasaur from "../src/assets/bulbasaur.png";
 
 function App() {
   return (
@@ -16,18 +17,18 @@ function App() {
       <main className="pokeList">
         <List>
           <ListItem href="#">
-            <ListImg src="" alt="#"></ListImg>
+            <ListImg src={Bulbasaur} alt="#"></ListImg>
             <ListItemText
               primary="Whiskey"
               secondary="Schluckspecht"
             ></ListItemText>
-            <ListIconsContainer>test</ListIconsContainer>
+            <ListIcon src="" alt="#"></ListIcon>
           </ListItem>
 
           <ListItem href="#">
             <ListImg src="" alt="#"></ListImg>
             <ListItemText primary="Döner" secondary="Futtertier"></ListItemText>
-            <ListIconsContainer>test</ListIconsContainer>
+            <ListIcon src="" alt="#"></ListIcon>
           </ListItem>
         </List>
       </main>
