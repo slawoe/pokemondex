@@ -55,4 +55,10 @@
   border-bottom: 3px solid black;
   border-top: 3px solid black;
   padding: 5px 0px;
+  overflow: auto;
+}
+
+.loading {
+  text-align: center;
+  color: red;
 }
