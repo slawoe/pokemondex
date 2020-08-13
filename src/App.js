@@ -22,24 +22,11 @@ const ivysaur = {
 };
 
 const pokemons = [ivysaur, bulbasaur];
-// const pokemons = [
-//   {
-//     name: "Bulbasaur",
-//     imgSrc: "https://img.pokemondb.net/artwork/large/bulbasaur.jpg",
-//     id: "001",
-//     link: "#bulbasaur",
-//   },
-//   {
-//     name: "Ivysaur",
-//     imgSrc: "https://img.pokemondb.net/artwork/large/ivysaur.jpg",
-//     id: "002",
-//     link: "#ivysaur",
-//   },
-// ];
 
 const pokemonListFromArray = pokemons.map((pokemon) => console.log(pokemon));
 
 function App() {
+  // mögliche Schreibweise, jedoch nicht genutzt
   // const listItems = pokemons.map((pokemon) => (
   //   <ListItem href={pokemon.link}>
   //     <ListImg
