@@ -18,7 +18,7 @@ function App() {
   // Leons Weg
   React.useEffect(() => {
     async function fetchData() {
-      // await waitFor(5000);
+      await waitFor(5000);
       const allPokemons = await fetchPokemons();
       setIsLoaded(true);
       setPokemons(allPokemons);
