@@ -13,30 +13,12 @@ function waitFor(time) {
 function App() {
   const [pokemons, setPokemons] = React.useState(null);
   const [IsLoaded, setIsLoaded] = React.useState(false);
-  // mögliche Schreibweise außerhalb unseres Returns, jedoch nicht genutzt
-  // const listItems = pokemons.map((pokemon) => (
-  //   <ListItem href={pokemon.link}>
-  //     <ListImg
-  //       src={pokemon.imgSrc}
-  //       alt={`Picture of ${pokemon.name}`}
-  //     ></ListImg>
-  //     <ListItemText
-  //       primary={pokemon.name}
-  //       secondary={`#${pokemon.id}`}
-  //     ></ListItemText>
-  //     <ListIcon src="" alt="#"></ListIcon>
-  //   </ListItem>
-  // ));
-
-  // const handleClick = async () => {
-  //   const allPokemons = await fetchPokemons();
-  //   setPokemons(allPokemons);
-  // };
+  const [query, setQuery] = React.useState("");
 
   // Leons Weg
   React.useEffect(() => {
     async function fetchData() {
-      await waitFor(5000);
+      // await waitFor(5000);
       const allPokemons = await fetchPokemons();
       setIsLoaded(true);
       setPokemons(allPokemons);
@@ -44,15 +26,9 @@ function App() {
     fetchData();
   }, []);
 
-  // mein Weg
-  // useEffect(() => {
-  //   const timer = setTimeout(async () => {
-  //     const allPokemons = await fetchPokemons();
-  //     setPokemons(allPokemons);
-  //     console.log(`After 5 second`);
-  //   }, 5000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  const filteredPokemons = pokemons?.filter((pokemon) => {
+    return pokemon.name.startsWith(query);
+  });
 
   if (!IsLoaded) {
     return (
@@ -66,12 +42,17 @@ function App() {
     <div className="app">
       <header className="header">
         <h1 className="title">Pokedex</h1>
-        <input className="input" placeholder="Search your Pokemon..." />
+        <input
+          className="input"
+          placeholder="Search your Pokemon..."
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+        />
         {/* <button onClick={handleClick}>Load pokemons</button> */}
       </header>
       <main className="pokeList">
         <List>
-          {pokemons?.map((pokemon) => (
+          {filteredPokemons?.map((pokemon) => (
             <ListItem key={pokemon.id} href={pokemon.link}>
               <ListImg
                 src={pokemon.imgSrc}
@@ -91,3 +72,33 @@ function App() {
 }
 
 export default App;
+
+// mögliche Schreibweise außerhalb unseres Returns, jedoch nicht genutzt
+// const listItems = pokemons.map((pokemon) => (
+//   <ListItem href={pokemon.link}>
+//     <ListImg
+//       src={pokemon.imgSrc}
+//       alt={`Picture of ${pokemon.name}`}
+//     ></ListImg>
+//     <ListItemText
+//       primary={pokemon.name}
+//       secondary={`#${pokemon.id}`}
+//     ></ListItemText>
+//     <ListIcon src="" alt="#"></ListIcon>
+//   </ListItem>
+// ));
+
+// const handleClick = async () => {
+//   const allPokemons = await fetchPokemons();
+//   setPokemons(allPokemons);
+// };
+
+// mein Weg
+// useEffect(() => {
+//   const timer = setTimeout(async () => {
+//     const allPokemons = await fetchPokemons();
+//     setPokemons(allPokemons);
+//     console.log(`After 5 second`);
+//   }, 5000);
+//   return () => clearTimeout(timer);
+// }, []);
