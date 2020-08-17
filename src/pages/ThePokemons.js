@@ -6,6 +6,7 @@ import ListItemText from "../components/ListItemText";
 import ListIcon from "../components/ListIcon";
 import { fetchPokemons } from "../api/Pokemons";
 import LoadingScreen from "../components/LoadingScreen";
+import Input from "../components/Input";
 
 // function waitFor(time) {
 //   return new Promise((resolve) => setTimeout(resolve, time));
@@ -37,12 +38,13 @@ function ThePokemons() {
     <div className="app">
       <header className="header">
         <h1 className="title">Pokedex</h1>
-        <input
+        <Input value={query} onChange={(value) => setQuery(value)}></Input>
+        {/* <input
           className="input"
           placeholder="Search your Pokemon..."
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-        />
+        /> */}
         {/* <button onClick={handleClick}>Load pokemons</button> */}
       </header>
       <main className="pokeList">
