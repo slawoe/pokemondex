@@ -2,7 +2,7 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: auto 33% auto;
+  grid-template-columns: 10% 80% 10%;
   grid-template-rows: 10% 80% 10%;
   justify-items: stretch;
   background: linear-gradient(
@@ -61,4 +61,9 @@
 .loading {
   text-align: center;
   color: red;
+}
+
+footer {
+  grid-row-start: 3;
+  grid-row-end: 4;
 }
