@@ -1,8 +1,9 @@
 import React from "react";
+import "./Items.css";
 
 function Items() {
   return (
-    <div>
+    <div className="items">
       <h1>Items</h1>
     </div>
   );

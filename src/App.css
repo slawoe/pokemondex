@@ -61,6 +61,10 @@
 .loading {
   text-align: center;
   color: red;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 
 footer {
