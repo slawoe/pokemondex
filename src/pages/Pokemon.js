@@ -33,11 +33,11 @@ function Pokemon() {
     return <LoadingScreen />;
   }
   return (
-    <div>
+    <div className="detailsPage">
+      <div>Name: {pokemon.name.toUpperCase()}</div>
       <div>ID: {pokemon.id}</div>
-      <div>Name: {pokemon.name}</div>
       <div>
-        IMG: <img src={pokemon.imgSrc} alt={pokemon.name} />
+        <img src={pokemon.imgSrc} alt={pokemon.name} />
       </div>
     </div>
   );

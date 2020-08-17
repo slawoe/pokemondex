@@ -1,3 +1,17 @@
-body {
-  color: white;
+.detailsPage {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-start: 2;
+  place-content: center;
+  text-align: center;
+  background: white;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.detailsPage div img {
+  width: 18em;
+  height: 18em;
+  object-fit: contain;
 }
