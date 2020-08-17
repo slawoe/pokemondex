@@ -1,0 +1,32 @@
+.detailsPage {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-start: 2;
+  place-content: center;
+  text-align: center;
+  background: white;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.detailsPage div img {
+  width: 12em;
+  height: 12em;
+  object-fit: contain;
+  padding: 0;
+  margin: 0;
+}
+
+.detailsPage button {
+  background: red;
+  color: white;
+  box-shadow: 2px 2px 1px black;
+  border-radius: 2px;
+  border: none;
+  padding: 10px;
+}
+
+.detailsPage div {
+  padding: 7px;
+}
