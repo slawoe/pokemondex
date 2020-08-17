@@ -48,7 +48,10 @@ function ThePokemons() {
       <main className="pokeList">
         <List>
           {filteredPokemons?.map((pokemon) => (
-            <ListItem key={pokemon.id} href={pokemon.link}>
+            <ListItem
+              key={pokemon.id}
+              href={`/pokemons/${pokemon.name.toLowerCase()}`}
+            >
               <ListImg
                 src={pokemon.imgSrc}
                 alt={`Picture of ${pokemon.name}`}
