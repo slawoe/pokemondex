@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Items from "./pages/Items";
 import ThePokemons from "./pages/ThePokemons";
+import Pokemon from "./pages/Pokemon";
 
 // function waitFor(time) {
 //   return new Promise((resolve) => setTimeout(resolve, time));
@@ -18,17 +19,18 @@ function App() {
     <Router>
       <div className="app">
         <Switch>
+          <Route path="/pokemons/:name">
+            <Pokemon></Pokemon>
+          </Route>
           <Route path="/pokemons">
             <ThePokemons></ThePokemons>
           </Route>
-        </Switch>
-        <Switch>
           <Route path="/items">
             <Items></Items>
           </Route>
-        </Switch>
-        <Switch>
-          <Redirect to="/pokemons" />
+          <Route path="/">
+            <Redirect to="/pokemons" />
+          </Route>
         </Switch>
         <footer>
           <Link to="/pokemons">Pokemons</Link>

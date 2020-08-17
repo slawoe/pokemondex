@@ -12,7 +12,7 @@ import LoadingScreen from "../components/LoadingScreen";
 // }
 function ThePokemons() {
   const [pokemons, setPokemons] = React.useState(null);
-  const [IsLoaded, setIsLoaded] = React.useState(false);
+  const [IsLoaded, setIsLoaded] = React.useState(true);
   const [query, setQuery] = React.useState("");
 
   // Leons Weg
@@ -20,7 +20,7 @@ function ThePokemons() {
     async function fetchData() {
       // await waitFor(5000);
       const allPokemons = await fetchPokemons();
-      setIsLoaded(true);
+      //   setIsLoaded(true);
       setPokemons(allPokemons);
     }
     fetchData();
