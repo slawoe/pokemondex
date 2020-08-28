@@ -66,3 +66,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+BUMSUNDDINGSGEBUMSE-TODO
+{}Dependencies //dotenv, nodemon,
+{}Form // PokemonName, Sexualität, Vorlieben, Reaktion auf Bing-Virus
+{}
