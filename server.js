@@ -55,10 +55,16 @@ async function main() {
     res.status(201).send("There they are");
   });
 
+  //   app.delete("api/delete_collection", async (req, res) => {
+  //     console.log("Alles gelöscht");
+  //     response.send("delete them");
+  //     await collection.deleteOne(pokemons);
+  //   });
+
   app.get("/", (request, response) => {
     console.log("Request /");
     response.send(
-      "TODO: Jonas Imm verprügeln und ihm den Bing-Virus unterschieben!"
+      "I'm aaaaaaaliiiiiiveeeeeee, ohhhhhhh I'm aliiiiiiiIiiiiiiiveee!"
     );
   });
 }
