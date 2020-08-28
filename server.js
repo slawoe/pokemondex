@@ -10,12 +10,21 @@ const app = express();
 app.use(bodyParser.json());
 
 const port = 3000;
+app.use("/api/admin", admin);
 
-app.listen(port, function () {
-  console.log(`YAAAS, App is listening on http://localhost:${port}`);
-});
+async function main() {
+  await client.connect();
+  const database = client.db(process.env.MONGO_DB_NAME);
+  app.listen(port, function () {
+    console.log(`YAAAS, App is listening on http://localhost:${port}`);
+  });
 
-app.get("/", (request, response) => {
-  console.log("Request /");
-  response.send("Benne hat mich lieb, hat er gesagt!");
-});
+  app.get("/", (request, response) => {
+    console.log("Request /");
+    response.send(
+      "TODO: Jonas Imm verprügeln und ihm den Bing-Virus unterschieben!"
+    );
+  });
+}
+
+main();
