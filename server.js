@@ -96,7 +96,7 @@ async function main() {
     }
   });
 
-  app.post("/api/pokemon", async (request, response) => {
+  app.post(`/api/pokemon`, async (request, response) => {
     try {
       const pokemon = {
         name: request.body.name,
