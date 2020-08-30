@@ -5,8 +5,7 @@ require("dotenv").config();
 const fetch = require("node-fetch");
 const { response } = require("express");
 
-// const { fetchPokemons } = require("./src/api/Pokemons.js");
-
+//FETCHPOKEMONS
 async function fetchPokemons() {
   const response = await fetch(
     "https://unpkg.com/pokemons@1.1.0/pokemons.json"
@@ -49,23 +48,63 @@ async function main() {
     console.log(`YAAAS, App is listening on http://localhost:${port}`);
   });
 
-  app.post("/api/pokemons", async (req, res) => {
-    console.log("Post pokemons an API");
-    await collection.insertMany(pokemons);
-    res.status(201).send("There they are");
-  });
-
-  //   app.delete("api/delete_collection", async (req, res) => {
-  //     console.log("Alles gelöscht");
-  //     response.send("delete them");
-  //     await collection.deleteOne(pokemons);
-  //   });
+  // GET
 
   app.get("/", (request, response) => {
     console.log("Request /");
     response.send(
       "I'm aaaaaaaliiiiiiveeeeeee, ohhhhhhh I'm aliiiiiiiIiiiiiiiveee!"
     );
+  });
+
+  app.get("/api/pokemons", (request, response) => {
+    console.log("Request /");
+    response.send(pokemons);
+  });
+
+  app.get("/api/pokemons/:pokeID", async (request, response) => {
+    console.log("Request /");
+    console.log(request.params.pokeID);
+    const poke = await collection.findOne({ name: request.params.pokeID });
+    response.json(poke);
+  });
+
+  // POST
+  app.post("/api/pokemons", async (req, res) => {
+    console.log("Post pokemons an API");
+    await collection.insertMany(pokemons);
+    res.status(201).send("There they are");
+  });
+
+  app.post("/api/pokemon", async (req, res) => {
+    const pokemon = {
+      name: req.body.name,
+      id: req.body.id,
+      imgSrc: req.body.imgSrc,
+    };
+    console.log("Post pokemons an API");
+    await collection.insertOne(pokemon);
+    res.status(201).send("There it is");
+  });
+
+  //PATCH
+
+  app.patch("/api/pokemons/:pokeID", async (request, response) => {
+    console.log("Patch /");
+    console.log(request.params.pokeID);
+    const updatedPoke = await collection.updateOne(
+      { name: request.params.pokeID },
+      { $set: { name: request.body.name } }
+    );
+    response.json(updatedPoke);
+  });
+
+  // DELETE
+  app.delete("/api/pokemons/:pokeID", async (request, response) => {
+    console.log("Request /");
+    console.log(request.params.pokeID);
+    const poke = await collection.deleteOne({ name: request.params.pokeID });
+    response.json(poke);
   });
 }
 
