@@ -45,66 +45,97 @@ async function main() {
   console.log(pokemons);
 
   app.listen(port, function () {
-    console.log(`YAAAS, App is listening on http://localhost:${port}`);
+    try {
+      console.log(`YAAAS, App is listening on http://localhost:${port}`);
+    } catch (error) {
+      console.error("Pika Pika, something went wrong 😑");
+    }
   });
 
-  // GET
-
+  // GET ROUTES
   app.get("/", (request, response) => {
-    console.log("Request /");
-    response.send(
-      "I'm aaaaaaaliiiiiiveeeeeee, ohhhhhhh I'm aliiiiiiiIiiiiiiiveee!"
-    );
+    try {
+      console.log("Request /");
+      response.send(
+        "I'm aaaaaaaliiiiiiveeeeeee, ohhhhhhh I'm aliiiiiiiIiiiiiiiveee!"
+      );
+    } catch (error) {
+      console.error("Pika Pika, something went wrong 😑");
+    }
   });
 
   app.get("/api/pokemons", (request, response) => {
-    console.log("Request /");
-    response.send(pokemons);
+    try {
+      console.log("Request /pokemons");
+      response.json(pokemons);
+    } catch (error) {
+      console.error("Pika Pika, something went wrong 😑");
+    }
   });
 
-  app.get("/api/pokemons/:pokeID", async (request, response) => {
-    console.log("Request /");
-    console.log(request.params.pokeID);
-    const poke = await collection.findOne({ name: request.params.pokeID });
-    response.json(poke);
+  app.get("/api/pokemons/:pokeName", async (request, response) => {
+    try {
+      console.log(`Request /pokemons/${request.params.pokeName}`);
+      const pokemon = await collection.findOne({
+        name: request.params.pokeName,
+      });
+      response.json(pokemon);
+    } catch (error) {
+      console.error("Pika Pika, something went wrong 😑");
+    }
   });
 
-  // POST
-  app.post("/api/pokemons", async (req, res) => {
-    console.log("Post pokemons an API");
-    await collection.insertMany(pokemons);
-    res.status(201).send("There they are");
+  // POST ROUTES
+  app.post("/api/pokemons", async (request, response) => {
+    try {
+      console.log("Post all pokemons an API");
+      await collection.insertMany(pokemons);
+      response.status(201).send("Catched'em all");
+    } catch (error) {
+      console.error("Pika Pika, something went wrong 😑");
+    }
   });
 
-  app.post("/api/pokemon", async (req, res) => {
-    const pokemon = {
-      name: req.body.name,
-      id: req.body.id,
-      imgSrc: req.body.imgSrc,
-    };
-    console.log("Post pokemons an API");
-    await collection.insertOne(pokemon);
-    res.status(201).send("There it is");
+  app.post("/api/pokemon", async (request, response) => {
+    try {
+      const pokemon = {
+        name: request.body.name,
+        id: request.body.id,
+        imgSrc: request.body.imgSrc,
+      };
+      console.log("Post a new pokemon an API");
+      await collection.insertOne(pokemon);
+      response.status(201).send("Catched another one");
+    } catch (error) {
+      console.error("Pika Pika, something went wrong 😑");
+    }
   });
 
-  //PATCH
-
-  app.patch("/api/pokemons/:pokeID", async (request, response) => {
-    console.log("Patch /");
-    console.log(request.params.pokeID);
-    const updatedPoke = await collection.updateOne(
-      { name: request.params.pokeID },
-      { $set: { name: request.body.name } }
-    );
-    response.json(updatedPoke);
+  //PATCH ROUTES
+  app.patch("/api/pokemons/:pokeName", async (request, response) => {
+    try {
+      console.log(`Patch /api/pokemons/${request.params.pokeName}`);
+      const updatedPoke = await collection.updateOne(
+        { name: request.params.pokeName },
+        { $set: { name: request.body.name } }
+      );
+      response.json(updatedPoke);
+    } catch (error) {
+      console.error("Pika Pika, something went wrong 😑");
+    }
   });
 
-  // DELETE
-  app.delete("/api/pokemons/:pokeID", async (request, response) => {
-    console.log("Request /");
-    console.log(request.params.pokeID);
-    const poke = await collection.deleteOne({ name: request.params.pokeID });
-    response.json(poke);
+  // DELETE ROUTES
+  app.delete("/api/pokemons/:pokeName", async (request, response) => {
+    try {
+      console.log(`Delete /api/pokemons/${request.params.pokeName}`);
+      const poke = await collection.deleteOne({
+        name: request.params.pokeName,
+      });
+      response.json(poke);
+    } catch (error) {
+      console.error("Pika Pika, something went wrong 😑");
+    }
   });
 }
 
