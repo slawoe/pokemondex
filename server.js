@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
 const fetch = require("node-fetch");
-const { response } = require("express");
 
 //FETCHPOKEMONS
 async function fetchPokemons() {
@@ -48,7 +47,7 @@ async function main() {
     try {
       console.log(`YAAAS, App is listening on http://localhost:${port}`);
     } catch (error) {
-      console.error("Pika Pika, something went wrong 😑");
+      console.error("Pika Pika, something went wrong 😑", error);
     }
   });
 
@@ -60,7 +59,7 @@ async function main() {
         "I'm aaaaaaaliiiiiiveeeeeee, ohhhhhhh I'm aliiiiiiiIiiiiiiiveee!"
       );
     } catch (error) {
-      console.error("Pika Pika, something went wrong 😑");
+      console.error("Pika Pika, something went wrong 😑", error);
     }
   });
 
@@ -69,7 +68,7 @@ async function main() {
       console.log("Request /pokemons");
       response.json(pokemons);
     } catch (error) {
-      console.error("Pika Pika, something went wrong 😑");
+      console.error("Pika Pika, something went wrong 😑", error);
     }
   });
 
@@ -81,7 +80,7 @@ async function main() {
       });
       response.json(pokemon);
     } catch (error) {
-      console.error("Pika Pika, something went wrong 😑");
+      console.error("Pika Pika, something went wrong 😑", error);
     }
   });
 
@@ -92,7 +91,7 @@ async function main() {
       await collection.insertMany(pokemons);
       response.status(201).send("Catched'em all");
     } catch (error) {
-      console.error("Pika Pika, something went wrong 😑");
+      console.error("Pika Pika, something went wrong 😑", error);
     }
   });
 
@@ -107,7 +106,7 @@ async function main() {
       await collection.insertOne(pokemon);
       response.status(201).send("Catched another one");
     } catch (error) {
-      console.error("Pika Pika, something went wrong 😑");
+      console.error("Pika Pika, something went wrong 😑", error);
     }
   });
 
@@ -121,7 +120,7 @@ async function main() {
       );
       response.json(updatedPoke);
     } catch (error) {
-      console.error("Pika Pika, something went wrong 😑");
+      console.error("Pika Pika, something went wrong 😑", error);
     }
   });
 
@@ -134,7 +133,7 @@ async function main() {
       });
       response.json(poke);
     } catch (error) {
-      console.error("Pika Pika, something went wrong 😑");
+      console.error("Pika Pika, something went wrong 😑", error);
     }
   });
 }
